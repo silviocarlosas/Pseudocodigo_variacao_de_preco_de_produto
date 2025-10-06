@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Atividade1_CestaBasica_SilvioCarlosAlvesDaSilva2"/>
+        <attribute name="authors" value="silvi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-09-21 12:03:27 "/>
+        <attribute name="created" value="c2lsdmk7U0lMVklPQ0FSTE9TOzIwMjUtMDktMjE7IjExOjAyOjQyICI7MjY1OQ=="/>
+        <attribute name="edited" value="c2lsdmk7U0lMVklPQ0FSTE9TOzIwMjUtMDktMjE7IjEyOjAzOjI3ICI7ODsyNzc5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="NomeProduto, Situacao" type="String" array="False" size=""/>
+            <declare name="PrecoAnterior, PrecoAtual, Variacao, VariacaoArredondada" type="Real" array="False" size=""/>
+            <output expression="&quot;Insira o nome do produto:&quot;" newline="True"/>
+            <input variable="NomeProduto"/>
+            <output expression="&quot;Insira o pre&#231;o anterior do produto, trocando a (,) por (.):&quot;" newline="True"/>
+            <input variable="PrecoAnterior"/>
+            <output expression="&quot;Insira o pre&#231;o atual do produto, trocando a (,) por (.):&quot;" newline="True"/>
+            <input variable="PrecoAtual"/>
+            <assign variable="Variacao" expression="((PrecoAtual - PrecoAnterior) / PrecoAnterior)*100"/>
+            <assign variable="VariacaoArredondada" expression="Int(Variacao*100)/100"/>
+            <if expression="Variacao&gt;0">
+                <then>
+                    <output expression="&quot;O produto &quot; &amp; NomeProduto &amp; &quot; obteve um aumento de &quot; &amp; Int(Variacao*100)/100 &amp; &quot;%&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="Variacao&lt;0">
+                        <then>
+                            <output expression="&quot;O produto &quot; &amp; NomeProduto &amp; &quot; obteve uma QUEDA de &quot; &amp; Int(Variacao*100)/100 *(-1) &amp; &quot;%&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;O produto &quot; &amp; NomeProduto &amp; &quot; permaneceu com seu pre&#231;o est&#225;vel.&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <output expression="&quot;Resumo do produto:&quot;" newline="True"/>
+            <output expression="&quot;Nome: &quot; &amp; NomeProduto" newline="True"/>
+            <output expression="&quot;Pre&#231;o Anterior: &quot; &amp; &quot;R$ &quot; &amp; PrecoAnterior" newline="True"/>
+            <output expression="&quot;Pre&#231;o Atual: &quot; &amp; &quot;R$ &quot; &amp; PrecoAtual" newline="True"/>
+            <output expression="&quot;Varia&#231;&#227;o: &quot; &amp; VariacaoArredondada &amp; &quot;%&quot;" newline="True"/>
+            <if expression="VariacaoArredondada&gt;0">
+                <then>
+                    <if expression="VariacaoArredondada&gt;10">
+                        <then>
+                            <output expression="&quot;Produto com AUMENTO ABUSIVO de pre&#231;o.&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Produto com AUMENTO de pre&#231;o.&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <if expression="VariacaoArredondada&lt;0">
+                        <then>
+                            <output expression="&quot;Produto est&#225; com QUEDA de pre&#231;o.&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Produto est&#225; com o pre&#231;o EST&#193;VEL.&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
