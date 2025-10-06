@@ -1,0 +1,2 @@
+# Pseudocodigo_variacao_de_preco_de_produto
+O sistema deve analisar a variação de preço de um produto, do preço antigo para o atual e identificar se o novo valor obteve uma variação para menor, maior, maior com mais de 10 % (aumento abusivo) ou se permaneceu com preço estável. No final, após as inserções do usuário, o sistema mostra um relatório com todas as informações sobre a variação.
